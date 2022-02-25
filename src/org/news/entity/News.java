@@ -14,6 +14,7 @@ public class News {
     private String ncontent;
     private Date nmodifyDate;
     private String nsummary;
+    private String tname;
 
     @Override
     public String toString() {
@@ -27,7 +28,16 @@ public class News {
                 ", ncontent='" + ncontent + '\'' +
                 ", nmodifyDate=" + nmodifyDate +
                 ", nsummary='" + nsummary + '\'' +
+                ", Tname='" + tname + '\'' +
                 '}';
+    }
+
+    public String getTname() {
+        return tname;
+    }
+
+    public void setTname(String tname) {
+        tname = tname;
     }
 
     public int getNid() {
