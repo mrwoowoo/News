@@ -11,6 +11,7 @@
 <title>添加主题--管理后台</title>
 <link href="../css/admin.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="../js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="/js/admin.js"></script>
 
 </head>
 <body>
