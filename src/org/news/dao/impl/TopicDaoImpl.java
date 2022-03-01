@@ -39,4 +39,12 @@ public class TopicDaoImpl extends BaseDao implements TopicDao {
         }
         return list;
     }
+
+    //添加主题
+    @Override
+    public int addTopic(String name) throws SQLException {
+        String sql = "insert into topic(tname) values(?)";
+        int result = this.executeUpdate(sql, name);
+        return result;
+    }
 }

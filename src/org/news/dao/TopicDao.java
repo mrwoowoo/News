@@ -9,4 +9,7 @@ import java.util.List;
 public interface TopicDao {
     //获取所以主题
     public List<Topic> getAllTopics() throws SQLException;
+
+    //添加主题，添加主题名称,添加SQL语句，奇闻
+    public int addTopic(String name) throws SQLException;
 }

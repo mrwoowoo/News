@@ -7,16 +7,26 @@
         <servlet-name>UserServlet</servlet-name>
         <servlet-class>org.news.servlet.UserServlet</servlet-class>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>UserServlet</servlet-name>
+        <url-pattern>/util/user</url-pattern>
+    </servlet-mapping>
+
     <servlet>
         <servlet-name>NewsServlet</servlet-name>
         <servlet-class>org.news.servlet.NewsServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>UserServlet</servlet-name>
-        <url-pattern>/util/user</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>NewsServlet</servlet-name>
         <url-pattern>/util/news</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>TopicServlet</servlet-name>
+        <servlet-class>org.news.servlet.TopicServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TopicServlet</servlet-name>
+        <url-pattern>/util/topics</url-pattern>
     </servlet-mapping>
 </web-app>
