@@ -12,4 +12,7 @@ public interface TopicDao {
 
     //添加主题，添加主题名称,添加SQL语句，奇闻
     public int addTopic(String name) throws SQLException;
+
+    //依据主题名称查找主题
+    public Topic findTopicByName(String name) throws SQLException;
 }

@@ -21,4 +21,12 @@ public class TestTopicServiceImpl {
             System.out.println(topic);
         }
     }
+
+    //添加主题
+    @Test
+    public void testAddTopic() throws SQLException {
+        TopicService topicService = new TopicServiceImpl();
+        int result = topicService.addTopic("其他");
+        System.out.println(result>0?"添加主题成功":"添加主题失败");
+    }
 }

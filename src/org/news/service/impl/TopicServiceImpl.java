@@ -31,4 +31,34 @@ public class TopicServiceImpl implements TopicService {
             DataBaseUtil.closeAll(connection, null, null);
         }
     }
+
+    @Override
+    public int addTopic(String name) throws SQLException {
+        Connection connection = null;
+        int result = 0;
+        try {
+            connection = DataBaseUtil.getConnection();
+            connection.setAutoCommit(false); //关闭自动提交
+            //依赖上一层Dao
+            TopicDao topicDao = new TopicDaoImpl(connection);
+            if(topicDao.findTopicByName(name) == null) { //没有主题添加
+                result = topicDao.addTopic(name);
+            }else {
+                result = -1;
+            }
+            connection.commit();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            if(connection != null) {
+                try {
+                    connection.rollback(); //事务回滚
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }finally {
+            DataBaseUtil.closeAll(connection, null, null);
+        }
+        return result;
+    }
 }

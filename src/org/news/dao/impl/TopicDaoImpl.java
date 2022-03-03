@@ -47,4 +47,26 @@ public class TopicDaoImpl extends BaseDao implements TopicDao {
         int result = this.executeUpdate(sql, name);
         return result;
     }
+
+    //根据名称查找主题
+    @Override
+    public Topic findTopicByName(String name) throws SQLException {
+        String sql="select * from topic where tname=?";
+        ResultSet rs = null;
+        Topic topic = null;
+        try {
+            rs = this.executeQuery(sql, name);
+            if(rs.next()) {
+                topic = new Topic();
+                topic.setTid(rs.getInt("tid"));
+                topic.setTname(rs.getString("tname"));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            throw throwables;
+        } finally {
+            DataBaseUtil.closeAll(null, null, rs);
+        }
+        return topic;
+    }
 }
